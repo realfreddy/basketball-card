@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basketball Card</title>
+  </head>
+  <body
+    class="bg-secondary min-h-screen flex flex-col items-center justify-center gap-8"
+  >
+    <header>
+      <h1
+        class="text-5xl font-extrabold bg-clip-text bg-linear-to-r from-text-primary to-text-muted text-transparent"
+      >
+        Player Generator
+      </h1>
+    </header>
+    <div>
+      <button type="button" id="add-team-btn" class="btn">Add Team</button>
+    </div>
+    <dialog
+      id="add-team-modal"
+      class="items-center p-6 rounded-xl bg-surface-alt text-primary flex flex-col font-extrabold"
+    >
+      <h2 class="text-2xl mb-1.5">Add Team</h2>
+      <form action="" id="modal-form" class="w-full">
+        <div class="mb-2 flex">
+          <label for="name" class="w-24">Team Name:</label>
+          <input
+            type="text"
+            id="team-name"
+            required
+            class="w-full border border-accent"
+          />
+        </div>
+        <div class="mb-2 flex">
+          <label for="city" class="w-24">City:</label>
+          <input
+            type="text"
+            id="team-city"
+            required
+            class="w-full border border-accent"
+          />
+        </div>
+        <div class="flex gap-3">
+          <button type="button" id="cancel-model-btn" class="btn">
+            Cancel
+          </button>
+          <button type="submit" id="submit" class="btn">Submit</button>
+        </div>
+      </form>
+    </dialog>
+    <div class="flex gap-6 w-full max-w-5xl min-h-[500px]">
+      <div
+        class="w-64 shrink-0 bg-surface border border-border rounded-xl p-4 flex flex-col gap-3"
+      >
+        <h2 class="text-text-primary font-bold text-lg">Teams</h2>
+      </div>
+
+      <div
+        class="flex-1 bg-surface border border-border rounded-xl p-6 grid grid-cols-3 gap-4 content-start"
+      ></div>
+    </div>
+  </body>
+</html>

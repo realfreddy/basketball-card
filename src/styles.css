@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #e8e8e8; /* near-white — primary text, key UI elements */
+  --color-primary-dark: #b0b0b0; /* hover state for primary */
+  --color-secondary: #0a0a0a; /* near-black — page background */
+  --color-surface: #111111; /* dark gray — card backgrounds */
+  --color-surface-alt: #1a1a1a; /* slightly lighter — elevated cards, inputs */
+  --color-text-primary: #f0f0f0; /* off-white — main readable text */
+  --color-text-muted: #555555; /* dark gray — subtle labels, secondary info */
+  --color-accent: #ffffff; /* pure white — standout numbers, highlights */
+  --color-border: #222222; /* very dark — subtle card borders */
+  --color-success: #4caf7d; /* green — positive stats (only color in the UI) */
+}
+
+dialog {
+  margin: auto;
+}
+
+@layer components {
+  .btn {
+    @apply rounded-full py-2 px-3 uppercase font-bold cursor-pointer bg-primary text-text-muted;
+  }
+  .card {
+    @apply w-30 p-2 bg-surface-alt rounded-xl border border-border;
+  }
+}
