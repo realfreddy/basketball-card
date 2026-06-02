@@ -9,9 +9,12 @@ export function openModal() {
   });
 }
 
-export function closeModal() {
+export function closeModalButton() {
   closeModalBtn.addEventListener("click", () => {
     modal.close();
     console.log("closed");
   });
+}
+export function closeModal() {
+  modal.close();
 }
