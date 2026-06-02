@@ -3,9 +3,13 @@ import { openModal } from "./Modal.js";
 import { closeModal } from "./Modal.js";
 import { closeModalButton } from "./Modal.js";
 import { addTeam } from "./TeamDOM.js";
-
+import { openCardModal } from "./Modal.js";
+import { cancelCardBtn } from "./Modal.js";
+import { displayPlayers, addPlayerCard } from "./PlayerDOM.js";
 openModal();
 closeModal();
 closeModalButton();
-//displayTasks();
 addTeam();
+openCardModal();
+cancelCardBtn();
+addPlayerCard();
