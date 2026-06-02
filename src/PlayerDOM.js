@@ -1,4 +1,5 @@
 import { Player } from "./Player.js";
+import { closeModal } from "./Modal.js";
 const form = document.getElementById("modal-form");
 const playerName = document.getElementById("player-name");
 const playerHeight = document.getElementById("player-height");
@@ -21,6 +22,7 @@ export function addPlayerCard() {
     const playerCard = new Player(name, height, pos, points, rebs, assists);
     players.push(playerCard);
     displayPlayers();
+    closeModal();
   });
 }
 
@@ -34,7 +36,8 @@ export function displayPlayers() {
     header.className = "flex items-center gap-3 mb-4";
 
     const avatar = document.createElement("div");
-    avatar.className = "w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-xl";
+    avatar.className =
+      "w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-xl";
     avatar.textContent = "🏀";
 
     const nameGroup = document.createElement("div");

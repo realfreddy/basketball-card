@@ -24,6 +24,7 @@ export function cancelCardBtn() {
 }
 export function closeModal() {
   modal.close();
+  cardModal.close();
 }
 
 export function openCardModal() {
