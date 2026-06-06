@@ -3,8 +3,9 @@ export class Team {
     this.id = crypto.randomUUID();
     this.name = name;
     this.city = city;
+    this.players = [];
   }
   displayInfo() {
-    return `${this.name} , ${this.city}`;
+    return `${this.name} ${this.city}`;
   }
 }

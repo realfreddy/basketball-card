@@ -1,5 +1,6 @@
 import { Player } from "./Player.js";
 import { closeModal } from "./Modal.js";
+import { selecedTeam } from "./state.js";
 const form = document.getElementById("modal-form");
 const playerName = document.getElementById("player-name");
 const playerHeight = document.getElementById("player-height");
@@ -8,8 +9,7 @@ const playerPoints = document.getElementById("player-points");
 const playerRebs = document.getElementById("player-rebounds");
 const playerAssists = document.getElementById("player-assists");
 const submitPlayer = document.getElementById("create-player-button");
-const players = [];
-const cardContainer = document.getElementById("card-container");
+export let cardContainer = document.getElementById("card-container");
 export function addPlayerCard() {
   submitPlayer.addEventListener("click", (event) => {
     event.preventDefault();
@@ -20,7 +20,11 @@ export function addPlayerCard() {
     const rebs = playerRebs.value;
     const assists = playerAssists.value;
     const playerCard = new Player(name, height, pos, points, rebs, assists);
-    players.push(playerCard);
+    if (!selecedTeam) {
+      alert("select a team");
+      return;
+    }
+    selecedTeam.players.push(playerCard);
     displayPlayers();
     closeModal();
   });
@@ -28,7 +32,7 @@ export function addPlayerCard() {
 
 export function displayPlayers() {
   cardContainer.innerHTML = "";
-  players.forEach((player) => {
+  selecedTeam.players.forEach((player, index) => {
     const card = document.createElement("div");
     card.className = "bg-surface border border-border rounded-xl p-5 w-full";
 
@@ -50,10 +54,19 @@ export function displayPlayers() {
     posEl.className = "text-xs text-text-muted";
     posEl.textContent = player.displayPos();
 
+    const deleteBtn = document.createElement("div");
+    deleteBtn.className = "ml-auto shrink-0 cursor-pointer hover:text-red-400";
+    deleteBtn.textContent = "❌";
+    deleteBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      removePlayer(index);
+    });
+
     nameGroup.appendChild(nameEl);
     nameGroup.appendChild(posEl);
     header.appendChild(avatar);
     header.appendChild(nameGroup);
+    header.appendChild(deleteBtn);
 
     const heightSection = document.createElement("div");
     heightSection.className = "border-t border-border pt-3 mb-3";
@@ -100,4 +113,13 @@ export function displayPlayers() {
     card.appendChild(statsGrid);
     cardContainer.appendChild(card);
   });
+}
+
+export function removePlayer(index) {
+  selecedTeam.players.splice(index, 1);
+  displayPlayers();
+}
+
+export function clearPlayers() {
+  cardContainer.innerHTML = "";
 }

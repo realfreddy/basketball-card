@@ -24,4 +24,7 @@ dialog {
   .card {
     @apply w-30 p-2 bg-surface-alt rounded-xl border border-border;
   }
+  .team-card-active {
+    @apply border-accent bg-surface-alt ring-2 ring-accent;
+  }
 }
