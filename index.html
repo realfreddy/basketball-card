@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basketball Card</title>
+  <script defer src="main.js"></script></head>
+  <body
+    class="bg-secondary min-h-screen flex flex-col items-center justify-center gap-8"
+  >
+    <header>
+      <h1
+        class="text-5xl font-extrabold bg-clip-text bg-linear-to-r from-text-primary to-text-muted text-transparent"
+      >
+        Player Generator
+      </h1>
+    </header>
+    <div>
+      <button type="button" id="add-team-btn" class="btn">Add Team</button>
+    </div>
+    <div>
+      <button type="button" id="generate-card-btn" class="btn py-1 px-1">
+        Generate Player
+      </button>
+    </div>
+    <dialog
+      id="add-team-modal"
+      class="p-6 rounded-xl bg-surface-alt text-primary font-extrabold"
+    >
+      <div class="flex flex-col items-center">
+        <h2 class="text-2xl mb-1.5">Add Team</h2>
+        <form action="" id="modal-form" class="w-full">
+          <div class="mb-2 flex">
+            <label for="team-name" class="w-24">Team Name:</label>
+            <input
+              type="text"
+              id="team-name"
+              required
+              class="w-full border border-accent"
+            />
+          </div>
+          <div class="mb-2 flex">
+            <label for="city" class="w-24">City:</label>
+            <input
+              type="text"
+              id="team-city"
+              required
+              class="w-full border border-accent"
+            />
+          </div>
+          <div class="flex gap-3">
+            <button type="button" id="cancel-model-btn" class="btn">
+              Cancel
+            </button>
+            <button type="submit" id="submit-team-button" class="btn">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <div class="flex gap-6 w-full max-w-5xl min-h-[500px]">
+      <div
+        id="team-sidebar"
+        class="w-64 shrink-0 bg-surface border border-border rounded-xl p-4 flex flex-col gap-3"
+      >
+        <h2 class="text-text-primary font-bold text-lg">Teams</h2>
+        <div id="team-sidebar-strips"></div>
+      </div>
+
+      <div
+        id="card-container"
+        class="flex-1 bg-surface border border-border rounded-xl p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 content-start overflow-y-auto"
+      ></div>
+    </div>
+    <dialog
+      id="add-player-modal"
+      class="p-6 rounded-xl bg-surface-alt text-primary font-extrabold"
+    >
+      <div class="flex flex-col items-center">
+        <h2 class="text-2xl mb-1.5">Add Player</h2>
+        <form action="" id="modal-form" class="w-full">
+          <div class="mb-2 flex">
+            <label for="player-name" class="w-24">Name:</label>
+            <input
+              type="text"
+              id="player-name"
+              required
+              class="w-full border border-accent"
+            />
+          </div>
+          <div class="mb-2 flex">
+            <label for="player-height" class="w-24">Height:</label>
+            <input
+              type="text"
+              id="player-height"
+              required
+              class="w-full border border-accent"
+            />
+          </div>
+          <div class="mb-2 flex">
+            <label for="player-position" class="w-24">Position:</label>
+            <input
+              type="text"
+              id="player-position"
+              required
+              class="w-full border border-accent"
+            />
+          </div>
+          <div class="mb-2 flex">
+            <label for="player-points" class="w-24">Points:</label>
+            <input
+              type="number"
+              id="player-points"
+              required
+              class="w-full border border-accent"
+            />
+          </div>
+          <div class="mb-2 flex">
+            <label for="player-rebounds" class="w-24">Rebounds:</label>
+            <input
+              type="number"
+              id="player-rebounds"
+              required
+              class="w-full border border-accent"
+            />
+          </div>
+          <div class="mb-2 flex">
+            <label for="player-assists" class="w-24">Assists:</label>
+            <input
+              type="number"
+              id="player-assists"
+              required
+              class="w-full border border-accent"
+            />
+          </div>
+          <div class="flex gap-3 mt-3">
+            <button type="button" id="cancel-card-btn" class="btn">
+              Cancel
+            </button>
+            <button type="submit" id="create-player-button" class="btn">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+  </body>
+</html>
